@@ -12,7 +12,7 @@ const Location = ({location}) => {
         <span>population:{location?.residents.length}</span>
       </section>
 
-      <section>
+      <section className="flex gap-4 flex-wrap">
       {
           location?.residents.map(resident=> (<ResidentInfo key={resident} residentLocation={resident}/>) )
         }

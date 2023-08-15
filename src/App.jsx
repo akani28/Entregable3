@@ -3,23 +3,39 @@ import "./App.css";
 import axios from "axios";
 import { randomNumber } from "./random";
 import Location from "./components/Location";
-import ResidentInfo from "./components/ResidentInfo";
+
 
 function App() {
   const [location, setLocation] = useState(null);
+  const [idLocation, setIdLocation] = useState("");
+
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+  }
+  const handleOnChange=(e)=>{
+    setIdLocation(e.target.value)
+  }
+  const handleOnClick=()=>{
+    searchLocation(idLocation)
+  }
+  function searchLocation(location){
+    axios
+    .get(`https://rickandmortyapi.com/api/location/${location}`)
+    .then(({ data }) => setLocation(data))
+    .catch((err) => console.log(err));
+
+  }
   useEffect(() => {
     const randomLocation = randomNumber(126);
-    axios
-      .get(`https://rickandmortyapi.com/api/location/${randomLocation}`)
-      .then(({ data }) => setLocation(data))
-      .catch((err) => console.log(err));
+    searchLocation(randomLocation);
+    
   }, []);
 
   return (
     <main className="bg-black p-4">
-      <form className="flex justify-center items-center">
-        <input className="border-green-400 border-2" type="text" />
-        <button className="bg-[#8eff8b80] border-green-400 border-2 w-[50px] h-[28px]">
+      <form onSubmit={handleSubmit} className="flex justify-center items-center">
+        <input value={idLocation} onChange={handleOnChange} className="border-green-400 border-2" type="text" />
+        <button  onClick={handleOnClick} className="bg-[#8eff8b80] border-green-400 border-2 w-[50px] h-[28px]">
           <svg className="flex items-center"
             width="25"
             height="24"

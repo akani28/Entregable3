@@ -9,9 +9,9 @@ const ResidentInfo = ({residentLocation}) => {
         .catch((err)=>console.log(err))
     },[])
   return (
-    <div>
+    <div className='flex flex-col gap-2 justify-center'>
         <section className='relative'>
-            <img src={resident?.image} alt="" />
+            <img src={resident?.image} />
             <article className='absolute bottom-6 left-20'>
                 {
                     (resident?.status==="Alive")?(
