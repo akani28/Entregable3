@@ -17,6 +17,7 @@ function App() {
   }
   const handleOnClick=()=>{
     searchLocation(idLocation)
+    setIdLocation("")
   }
   function searchLocation(location){
     axios
