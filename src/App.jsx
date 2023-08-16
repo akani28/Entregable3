@@ -30,11 +30,11 @@ function App() {
   }, []);
 
   return (
-    <main className="bg-[url(/public/bgBody.jpg)] p-4 flex gap-4 flex-col">
+    <main className="bg-[url(/bgBody.jpg)] p-4 flex gap-4 flex-col">
       <section>
-        <div className="bg-[url(/public/bgHeader.jpg)] flex justify-center items-center">
-          <img className="relative" src="/public/bgHeader2.png" alt="" />
-          <img className="absolute top-1" src="/public/title.png" alt="" />
+        <div className="bg-[url(/bgHeader.jpg)] flex justify-center items-center">
+          <img className="relative" src="/bgHeader2.png" alt="" />
+          <img className="absolute top-1" src="/title.png" alt="" />
         </div>
       </section>
       <form
