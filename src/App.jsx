@@ -4,40 +4,55 @@ import axios from "axios";
 import { randomNumber } from "./random";
 import Location from "./components/Location";
 
-
 function App() {
   const [location, setLocation] = useState(null);
   const [idLocation, setIdLocation] = useState("");
 
-  const handleSubmit=(e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
-  }
-  const handleOnChange=(e)=>{
-    setIdLocation(e.target.value)
-  }
-  const handleOnClick=()=>{
-    searchLocation(idLocation)
-    setIdLocation("")
-  }
-  function searchLocation(location){
+  };
+  const handleOnChange = (e) => {
+    setIdLocation(e.target.value);
+  };
+  const handleOnClick = () => {
+    searchLocation(idLocation);
+    setIdLocation("");
+  };
+  function searchLocation(location) {
     axios
-    .get(`https://rickandmortyapi.com/api/location/${location}`)
-    .then(({ data }) => setLocation(data))
-    .catch((err) => console.log(err));
-
+      .get(`https://rickandmortyapi.com/api/location/${location}`)
+      .then(({ data }) => setLocation(data))
+      .catch((err) => console.log(err));
   }
   useEffect(() => {
     const randomLocation = randomNumber(126);
     searchLocation(randomLocation);
-    
   }, []);
 
   return (
-    <main className="bg-black p-4">
-      <form onSubmit={handleSubmit} className="flex justify-center items-center">
-        <input value={idLocation} onChange={handleOnChange} className="border-green-400 border-2" type="text" />
-        <button  onClick={handleOnClick} className="bg-[#8eff8b80] border-green-400 border-2 w-[50px] h-[28px]">
-          <svg className="flex items-center"
+    <main className="bg-[url(/public/bgBody.jpg)] p-4 flex gap-4 flex-col">
+      <section>
+        <div className="bg-[url(/public/bgHeader.jpg)] flex justify-center items-center">
+          <img className="relative" src="/public/bgHeader2.png" alt="" />
+          <img className="absolute top-1" src="/public/title.png" alt="" />
+        </div>
+      </section>
+      <form
+        onSubmit={handleSubmit}
+        className="flex justify-center items-center"
+      >
+        <input
+          value={idLocation}
+          onChange={handleOnChange}
+          className="border-green-400 border-2"
+          type="text"
+        />
+        <button
+          onClick={handleOnClick}
+          className="bg-[#8eff8b80] border-green-400 border-2 w-[50px] h-[28px]"
+        >
+          <svg
+            className="flex items-center"
             width="25"
             height="24"
             viewBox="-10 0 30 24"
@@ -55,8 +70,6 @@ function App() {
         </button>
       </form>
       <Location location={location} />
-      
-     
     </main>
   );
 }

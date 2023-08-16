@@ -4,7 +4,7 @@ import ResidentInfo from "./ResidentInfo";
 const Location = ({location}) => {
   return (
     <>
-    <div className="bg-black text-white">
+    <div className="text-white">
     <section className="flex justify-center">{location?.name}</section>
       <section className="flex justify-center gap-3">
         <span>Type:{location?.type}</span>

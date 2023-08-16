@@ -9,7 +9,7 @@ const ResidentInfo = ({residentLocation}) => {
         .catch((err)=>console.log(err))
     },[])
   return (
-    <div className='flex flex-col gap-2 justify-center'>
+    <div className='bg-black flex flex-col gap-2 justify-center'>
         <section className='relative'>
             <img src={resident?.image} />
             <article className='absolute bottom-6 left-20'>
@@ -35,6 +35,7 @@ const ResidentInfo = ({residentLocation}) => {
                 
             </article>
         </section>
+        <div className='bg-black'>
         <section className='flex justify-center'>
             <h2>{resident?.name}</h2>
         </section>
@@ -43,6 +44,9 @@ const ResidentInfo = ({residentLocation}) => {
             <p>Origin: {resident?.origin.name}</p>
             <p>Times appear: {resident?.episode.length}</p>
         </section>
+
+        </div>
+        
     </div>
   )
 }
