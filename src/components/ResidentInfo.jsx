@@ -9,7 +9,7 @@ const ResidentInfo = ({residentLocation}) => {
         .catch((err)=>console.log(err))
     },[])
   return (
-    <div className='flex flex-col justify-center border-double border-2 border-green-400'>
+    <div className='max-w-[290px] flex flex-col justify-center border-double border-2 border-green-400'>
         <section className='relative'>
             <img src={resident?.image} />
             <article className='absolute bottom-6 left-20'>

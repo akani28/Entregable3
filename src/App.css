@@ -8,8 +8,8 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    min-width: 350px;
-    max-width: 1024px;
+    min-width: 360px;
+    /* max-width: 1024px; */
 
 }
 
