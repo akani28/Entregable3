@@ -35,14 +35,23 @@ const ResidentInfo = ({residentLocation}) => {
                 
             </article>
         </section>
-        <div className='bg-black bg-opacity-20'>
-        <section className='flex justify-center'>
+        <div className='bg-black bg-opacity-20 text-xs'>
+        <section className='flex justify-center pt-3'>
             <h2>{resident?.name}</h2>
         </section>
-        <section>
-            <p>Species: {resident?.species}</p>
-            <p>Origin: {resident?.origin.name}</p>
-            <p>Times appear: {resident?.episode.length}</p>
+        <section className='flex gap-3 p-2 m-2'>
+            <div className='flex justify-start flex-col'>
+                <p>Species</p>
+                <p>Origin</p>
+                <p>Times apper</p>
+            </div>
+            <div className='flex justify-start flex-col'>
+            <p className='text-[#DCDCDC]'>{resident?.species}</p>
+            <p>{resident?.origin.name}</p>
+            <p>{resident?.episode.length} time</p>
+
+            </div>
+            
         </section>
 
         </div>
